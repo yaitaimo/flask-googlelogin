@@ -183,7 +183,7 @@ class GoogleLogin(object):
             # Check sig
             if 'state' in request.args:
                 params.update(**self.parse_state(request.args.get('state')))
-                if params.pop('sig', None) != make_secure_token(**params):
+                if params.get('sig', None) != make_secure_token(**params):
                     return self.login_manager.unauthorized()
 
             code = request.args.get('code')
