@@ -204,7 +204,7 @@ class GoogleLogin(object):
             # Browser flow
             else:
                 if params:
-                    params.update(dict(request.args.items()))
+                    params.update(token=None, userinfo=None)
                 else:
                     return '''
                     <script>
